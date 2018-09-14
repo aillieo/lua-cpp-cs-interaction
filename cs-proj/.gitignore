@@ -1,0 +1,7 @@
+#win32
+
+cs-proj/bin/*
+
+cs-proj/obj/*
+
+*.suo

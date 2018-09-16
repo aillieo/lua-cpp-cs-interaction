@@ -20,3 +20,12 @@ extern "C" DLL_API void LuaClose(lua_State *L);
 
 extern "C" DLL_API void RegisterCSFunc(lua_State *L, const char *name, lua_CFunction fn);
 
+extern "C" DLL_API void LuaPushNumber(lua_State *L, double number);
+
+extern "C" DLL_API int LuaGetTop(lua_State *L);
+
+extern "C" DLL_API double LuaToNumber(lua_State *L, int level);
+
+extern "C" DLL_API void LuaGetGlobal(lua_State *L, const char *name);
+
+extern "C" DLL_API void LuaPCall(lua_State *L, int nargs, int nrets,int errfunc);

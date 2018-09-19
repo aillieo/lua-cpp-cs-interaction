@@ -105,8 +105,7 @@ namespace cs_proj
 
 
             // register cs func
-            LuaCSFunction f = new LuaCSFunction(CSFuncWrap);
-            IntPtr fn = Marshal.GetFunctionPointerForDelegate(f);
+            IntPtr fn = Marshal.GetFunctionPointerForDelegate((LuaCSFunction)(CSFuncWrap));
             CppDll.RegisterCSFunc(L, "CSFunc", fn);
 
 
@@ -123,6 +122,9 @@ namespace cs_proj
             CppDll.LuaPCall(L, 2, 1, 0);
             int ret = (int)CppDll.LuaToNumber(L, 1);
             Console.WriteLine("[CS] we got " + ret);
+
+            CppDll.LuaClose(L);
+
 
             Console.ReadKey();
         }
